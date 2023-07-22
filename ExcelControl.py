@@ -35,15 +35,34 @@ class ExcelControl():
     def cell(self):
         return self._cell
 
-    def set_cell_value(self, value: Any) -> None:
+    @cell.setter
+    def set_cell_value(self, value: Any | None):
         self.cell.value = value
 
     def print_cell_value(self) -> None:
+        """
+        print value of a cell
+        """
+
         print(self.cell.value)
 
     def print_all(self) -> None:
+        """
+        print as
+        
+        [10, 'name', 'method'  ....]
+        """
         for row in self.worksheet.iter_rows():
             print([row[i].value for i in range(len(row))])
+
+    # def create_pretty_format(self):
+    #     """
+    #     create pretty format
+    #     """
+
+    #     wb_output =  openpyxl.Workbook()
+    #     ws_output = wb_output.active
+
 
 
 if __name__ == "__main__":
